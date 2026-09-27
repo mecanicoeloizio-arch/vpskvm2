@@ -1,0 +1,57 @@
+[
+  {
+    "id": "log-1790473472182",
+    "timestamp": "2026-09-27 01:44:32",
+    "command": "docker compose ps",
+    "user": "root",
+    "host": "185.193.64.120",
+    "category": "docker",
+    "status": "success",
+    "output": "NAME                IMAGE               COMMAND                  SERVICE             CREATED             STATUS                    PORTS\nmapos_app           mapos:v4.45         \"docker-php-entryp...\"   mapos_app           2 hours ago         Up 2 hours (healthy)      0.0.0.0:8080->80/tcp\nmapos_db            mariadb:10.11       \"docker-entrypoint...\"   mapos_db            2 hours ago         Up 2 hours (healthy)      127.0.0.1:3306->3306/tcp\nnginx_proxy         nginx:alpine        \"/docker-entrypoin...\"   nginx_proxy         2 hours ago         Up 2 hours (healthy)      0.0.0.0:80->80/tcp, 0.0.0.0:443->443/tcp\nredis_cache         redis:7.2-alpine    \"docker-entrypoint...\"   redis_cache         2 hours ago         Up 2 hours                127.0.0.1:6379->6379/tcp",
+    "durationMs": 209
+  },
+  {
+    "id": "log-101",
+    "timestamp": "2026-09-26 18:20:14",
+    "command": "sudo ufw allow 80/tcp && sudo ufw allow 443/tcp && sudo ufw allow 22/tcp && sudo ufw enable",
+    "user": "root",
+    "host": "185.193.64.120",
+    "category": "firewall",
+    "status": "success",
+    "output": "Rules updated\nRules updated (v6)\nFirewall is active and enabled on system startup",
+    "durationMs": 420
+  },
+  {
+    "id": "log-102",
+    "timestamp": "2026-09-26 18:22:05",
+    "command": "docker compose -f /opt/mapos/docker-compose.yml up -d",
+    "user": "root",
+    "host": "185.193.64.120",
+    "category": "docker",
+    "status": "success",
+    "output": "[+] Running 4/4\n ✔ Network mapos_default Created\n ✔ Container mapos_db Started (healthy)\n ✔ Container mapos_app Started (healthy)\n ✔ Container nginx_proxy Started (healthy)",
+    "durationMs": 3850
+  },
+  {
+    "id": "log-103",
+    "timestamp": "2026-09-26 18:25:40",
+    "command": "nginx -t && systemctl reload nginx",
+    "user": "root",
+    "host": "185.193.64.120",
+    "category": "nginx",
+    "status": "success",
+    "output": "nginx: the configuration file /etc/nginx/nginx.conf syntax is ok\nnginx: configuration file /etc/nginx/nginx.conf test is successful",
+    "durationMs": 310
+  },
+  {
+    "id": "log-104",
+    "timestamp": "2026-09-26 18:30:12",
+    "command": "certbot --nginx -d oficina.seusite.com.br --non-interactive --agree-tos",
+    "user": "root",
+    "host": "185.193.64.120",
+    "category": "deploy",
+    "status": "success",
+    "output": "Requesting a certificate for oficina.seusite.com.br\nSuccessfully received certificate.\nCertificate is saved at: /etc/letsencrypt/live/oficina.seusite.com.br/fullchain.pem\nKey is saved at: /etc/letsencrypt/live/oficina.seusite.com.br/privkey.pem\nDeploying certificate\nSuccessfully deployed certificate for oficina.seusite.com.br",
+    "durationMs": 5400
+  }
+]

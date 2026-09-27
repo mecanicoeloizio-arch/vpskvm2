@@ -1,0 +1,8 @@
+{
+  "name": "Hostinger VPS & MapOS AI Manager",
+  "description": "IA feminina inteligente para gerenciar e criar códigos condizentes com Hostinger VPS, deploy de aplicações e atendimento MapOS por Eloizio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
